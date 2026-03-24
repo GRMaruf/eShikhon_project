@@ -1,0 +1,69 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Trainers</h2>
+  <p>This is the trainers page of the eShikhon Information Management System. Here you can find information about our trainers.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="w3-container w3-margin">
+    <div style="text-align: right;">
+      <a href="{% url 'entry_new_trainer' %}" class="w3-button w3-light-blue">Add New Trainer</a>
+    </div>
+    <h2>Summary</h2>
+    Total number of trainers: {{ trainers|length }} <br />
+    Today's new entries: {{ today_trainers|length }} <br />
+  </div>
+
+  {% if today_trainers %}
+    <div class="w3-container w3-responsive w3-margin">
+      <h2>Today's new entry</h2>
+
+      <table class="w3-table-all w3-hoverable">
+        <caption>Click on a trainer ID to see details information</caption>
+        <thead>
+          <tr class="w3-light-grey">
+            <th>TrainerID</th>
+            <th>Name</th>
+            <th>Designation</th>
+          </tr>
+        </thead>
+
+        {% for data in today_trainers %}
+          <tr>
+            <td>
+              <a href="{% url 'trainer_detail' data.id %}">{{ data.TrainerID }}</a>
+            </td>
+            <td>{{ data.Name }}</td>
+            <td>{{ data.Designation }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% endif %}
+
+  <div class="w3-container w3-responsive w3-margin">
+    <h2>All Trainers</h2>
+
+    <table class="w3-table-all w3-hoverable">
+      <caption>Click on a trainer ID to see details information</caption>
+      <thead>
+        <tr class="w3-light-grey">
+          <th>TrainerID</th>
+          <th>Name</th>
+          <th>Designation</th>
+        </tr>
+      </thead>
+
+      {% for data in trainers %}
+        <tr>
+          <td>
+            <a href="{% url 'trainer_detail' data.id %}">{{ data.TrainerID }}</a>
+          </td>
+          <td>{{ data.Name }}</td>
+          <td>{{ data.Designation }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Add New Student</h2>
+  <p>This page allows you to add information about a new student to the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'entry_new_student' %}">
+    {% csrf_token %}
+    <p>
+      <label>Name</label>
+      <input class="w3-input" type="text" name="Name" />
+    </p>
+    <p>
+      <label>Student ID</label>
+      <input class="w3-input" type="text" name="StudentID" />
+    </p>
+    <p>
+      <label>Course Enrolled</label>
+      <input class="w3-input" type="text" name="CourseEnrolled" />
+    </p>
+    <p>
+      <label>Batch</label>
+      <input class="w3-input" type="text" name="Batch" />
+    </p>
+    <p>
+      <label>Age</label>
+      <input class="w3-input" type="number" name="Age" />
+    </p>
+    <p>
+      <label>Address</label>
+      <input class="w3-input" type="text" name="Address" />
+    </p>
+    <p>
+      <label>Home District</label>
+      <input class="w3-input" type="text" name="HomeDistrict" />
+    </p>
+    <p>
+      <label>NID</label>
+      <input class="w3-input" type="text" name="NID" />
+    </p>
+    <p>
+      <label>Progress Status</label>
+      <input class="w3-input" type="text" name="ProgressStatus" />
+    </p>
+    <p>
+      <label>Previous Skills</label>
+      <input class="w3-input" type="text" name="PreviousSkills" />
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}

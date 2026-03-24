@@ -1,0 +1,39 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Update Course</h2>
+  <p>This page allows you to update information about a course in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'update_course' course.id %}">
+    {% csrf_token %}
+    <p>
+      <label>Name</label>
+      <input class="w3-input" type="text" name="Name" value="{{ course.Name }}" />
+    </p>
+    <p>
+      <label>Course ID</label>
+      <input class="w3-input" type="text" name="CourseID" value="{{ course.CourseID }}" />
+    </p>
+    <p>
+      <label>Duration</label>
+      <input class="w3-input" type="text" name="Duration" value="{{ course.Duration }}" />
+    </p>
+    <p>
+      <label>Trainer Assigned</label>
+      <input class="w3-input" type="text" name="TrainerAssigned" value="{{ course.TrainerAssigned }}" />
+    </p>
+    <p>
+      <label>Description</label>
+      <textarea class="w3-input" name="Description">{{ course.Description }}</textarea>
+    </p>
+    <p>
+      <label>Syllabus</label>
+      <textarea class="w3-input" name="Syllabus">{{ course.Syllabus }}</textarea>
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Add New Course</h2>
+  <p>This page allows you to add information about a new course to the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'entry_new_course' %}">
+    {% csrf_token %}
+    <p>
+      <label>Name</label>
+      <input class="w3-input" type="text" name="Name" />
+    </p>
+    <p>
+      <label>Course ID</label>
+      <input class="w3-input" type="text" name="CourseID" />
+    </p>
+    <p>
+      <label>Duration</label>
+      <input class="w3-input" type="text" name="Duration" />
+    </p>
+    <p>
+      <label>Trainer Assigned</label>
+      <input class="w3-input" type="text" name="TrainerAssigned" />
+    </p>
+    <p>
+      <label>Description</label>
+      <textarea class="w3-input" name="Description"></textarea>
+    </p>
+    <p>
+      <label>Syllabus</label>
+      <textarea class="w3-input" name="Syllabus"></textarea>
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}

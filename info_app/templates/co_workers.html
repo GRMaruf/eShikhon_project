@@ -1,0 +1,69 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Co-Workers</h2>
+  <p>This is the co-workers page of the eShikhon Information Management System. Here you can find information about our co-workers.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="w3-container w3-margin">
+    <div style="text-align: right;">
+      <a href="{% url 'entry_new_co_worker' %}" class="w3-button w3-light-blue">Add New Co-Worker</a>
+    </div>
+    <h2>Summary</h2>
+    Total number of co-workers: {{ co_workers|length }} <br />
+    Today's new entries: {{ today_co_workers|length }} <br />
+  </div>
+
+  {% if today_co_workers %}
+    <div class="w3-container w3-responsive w3-margin">
+      <h2>Today's new entry</h2>
+
+      <table class="w3-table-all w3-hoverable">
+        <caption>Click on a co-worker ID to see details information</caption>
+        <thead>
+          <tr class="w3-light-grey">
+            <th>WorkerID</th>
+            <th>Name</th>
+            <th>Designation</th>
+          </tr>
+        </thead>
+
+        {% for data in today_co_workers %}
+          <tr>
+            <td>
+              <a href="{% url 'co_worker_detail' data.id %}">{{ data.WorkerID }}</a>
+            </td>
+            <td>{{ data.Name }}</td>
+            <td>{{ data.Designation }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% endif %}
+
+  <div class="w3-container w3-responsive w3-margin">
+    <h2>All Co-Workers</h2>
+
+    <table class="w3-table-all w3-hoverable">
+      <caption>Click on a co-worker ID to see details information</caption>
+      <thead>
+        <tr class="w3-light-grey">
+          <th>WorkerID</th>
+          <th>Name</th>
+          <th>Designation</th>
+        </tr>
+      </thead>
+
+      {% for data in co_workers %}
+        <tr>
+          <td>
+            <a href="{% url 'co_worker_detail' data.id %}">{{ data.WorkerID }}</a>
+          </td>
+          <td>{{ data.Name }}</td>
+          <td>{{ data.Designation }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

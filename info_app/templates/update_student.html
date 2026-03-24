@@ -1,0 +1,55 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Update Student</h2>
+  <p>This page allows you to update information about a student in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'update_student' student.id %}">
+    {% csrf_token %}
+    <p>
+      <label>Name</label>
+      <input class="w3-input" type="text" name="Name" value="{{student.Name}}"/>
+    </p>
+    <p>
+      <label>Student ID</label>
+      <input class="w3-input" type="text" name="StudentID" value="{{student.StudentID}}"/>
+    </p>
+    <p>
+      <label>Course Enrolled</label>
+      <input class="w3-input" type="text" name="CourseEnrolled" value="{{student.CourseEnrolled}}"/>
+    </p>
+    <p>
+      <label>Batch</label>
+      <input class="w3-input" type="text" name="Batch" value="{{student.Batch}}"/>
+    </p>
+    <p>
+      <label>Age</label>
+      <input class="w3-input" type="number" name="Age" value="{{student.Age}}"/>
+    </p>
+    <p>
+      <label>Address</label>
+      <input class="w3-input" type="text" name="Address" value="{{student.Address}}"/>
+    </p>
+    <p>
+      <label>Home District</label>
+      <input class="w3-input" type="text" name="HomeDistrict" value="{{student.HomeDistrict}}"/>
+    </p>
+    <p>
+      <label>NID</label>
+      <input class="w3-input" type="text" name="NID" value="{{student.NID}}"/>
+    </p>
+    <p>
+      <label>Progress Status</label>
+      <input class="w3-input" type="text" name="ProgressStatus" value="{{student.ProgressStatus}}"/>
+    </p>
+    <p>
+      <label>Previous Skills</label>
+      <input class="w3-input" type="text" name="PreviousSkills" value="{{student.PreviousSkills}}"/>
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}

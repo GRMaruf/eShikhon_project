@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <title>eShikhon Information Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css" />
+  <body>
+    {% include 'master/nav.html' %}
+
+    <div class="w3-container w3-blue">
+      {% block header %}
+
+      {% endblock %}
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <div class="w3-container w3-blue w3-margin-top w3-center">
+      {% include 'master/footer.html' %}
+    </div>
+  </body>
+</html>

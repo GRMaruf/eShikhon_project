@@ -1,0 +1,73 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Students Information</h2>
+  <p>This is the students page of the eShikhon Information Management System. Here you can find information about our students.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="w3-container w3-margin">
+    <div style="text-align: right;">
+      <a href="{% url 'entry_new_student' %}" class="w3-button w3-light-blue">Add New Student</a>
+    </div>
+    <h2>Summary</h2>
+    Total number of students: {{ students|length }} <br />
+    Today's new entries: {{ today_students|length }} <br />
+  </div>
+
+  {% if today_students %}
+    <div class="w3-container w3-responsive w3-margin">
+      <h2>Today's new entry</h2>
+
+      <table class="w3-table-all w3-hoverable">
+        <caption>Click on a student ID to see details information</caption>
+        <thead>
+          <tr class="w3-light-grey">
+            <th>StudentID</th>
+            <th>Name</th>
+            <th>Course Enrolled</th>
+            <th>Batch</th>
+          </tr>
+        </thead>
+
+        {% for data in today_students %}
+          <tr>
+            <td>
+              <a href="{% url 'student_detail' data.id %}">{{ data.StudentID }}</a>
+            </td>
+            <td>{{ data.Name }}</td>
+            <td>{{ data.CourseEnrolled }}</td>
+            <td>{{ data.Batch }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+  {% endif %}
+
+  <div class="w3-container w3-responsive w3-margin">
+    <h2>All Students</h2>
+
+    <table class="w3-table-all w3-hoverable">
+      <caption>Click on a student ID to see details information</caption>
+      <thead>
+        <tr class="w3-light-grey">
+          <th>StudentID</th>
+          <th>Name</th>
+          <th>Course Enrolled</th>
+          <th>Batch</th>
+        </tr>
+      </thead>
+
+      {% for data in students %}
+        <tr>
+          <td>
+            <a href="{% url 'student_detail' data.id %}">{{ data.StudentID }}</a>
+          </td>
+          <td>{{ data.Name }}</td>
+          <td>{{ data.CourseEnrolled }}</td>
+          <td>{{ data.Batch }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

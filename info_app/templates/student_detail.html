@@ -1,0 +1,26 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Student Details</h2>
+  <p>This page provides detailed information about a specific student in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="w3-card w3-padding w3-margin">
+    <h3 class="w3-center">{{ student.Name }}</h3>
+    <strong>Student ID:</strong> {{ student.StudentID }} <br />
+    <strong>Course Enrolled:</strong> {{ student.CourseEnrolled }} <br />
+    <strong>Batch:</strong> {{ student.Batch }} <br />
+    <strong>Age:</strong> {{ student.Age }} <br />
+    <strong>Address:</strong> {{ student.Address }} <br />
+    <strong>Home District:</strong> {{ student.HomeDistrict }} <br />
+    <strong>NID:</strong> {{ student.NID }} <br />
+    <strong>Progress Status:</strong> {{ student.ProgressStatus }} <br />
+    <strong>Previous Skills:</strong> {{ student.PreviousSkills }} <br />
+  </div>
+
+  <div class="w3-container w3-margin" style="text-align: right;">
+    <a href="{% url 'update_student' student.id %}" class="w3-button w3-light-blue">Update Student</a>
+    <a href="{% url 'delete_student' student.id %}" class="w3-button w3-red" onclick="return confirm('Are you sure you want to delete this student?');">Delete Student</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Course Details</h2>
+  <p>This page provides detailed information about a specific course in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <div class="w3-card w3-padding w3-margin">
+    <h3 class="w3-center">{{ course.Name }}</h3>
+    <strong>Course ID:</strong> {{ course.CourseID }} <br />
+    <strong>Duration:</strong> {{ course.Duration }} <br />
+    <strong>Trainer Assigned:</strong> {{ course.TrainerAssigned }} <br />
+    <strong>Description:</strong> {{ course.Description }} <br />
+    <strong>Syllabus:</strong> {{ course.Syllabus }} <br />
+  </div>
+
+   <div class="w3-container w3-margin" style="text-align: right;">
+    <a href="{% url 'update_course' course.id %}" class="w3-button w3-light-blue">Update Course</a>
+    <a href="{% url 'delete_course' course.id %}" class="w3-button w3-red" onclick="return confirm('Are you sure you want to delete this course?');">Delete Course</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Update Trainer</h2>
+  <p>This page allows you to update information about a trainer in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'update_trainer' trainer.id %}">
+    {% csrf_token %}
+    <p>
+      <label>Name</label>
+      <input class="w3-input" type="text" name="Name" value="{{trainer.Name}}" />
+    </p>
+    <p>
+      <label>Trainer ID</label>
+      <input class="w3-input" type="text" name="TrainerID" value="{{trainer.TrainerID}}" />
+    </p>
+    <p>
+      <label>Designation</label>
+      <input class="w3-input" type="text" name="Designation" value="{{trainer.Designation}}" /> 
+    </p>
+    <p>
+      <label>Age</label>
+      <input class="w3-input" type="number" name="Age" value="{{trainer.Age}}" />
+    </p>
+    <p>
+      <label>Address</label>
+      <input class="w3-input" type="text" name="Address" value="{{trainer.Address}}" />
+    </p>
+    <p>
+      <label>Home District</label>
+      <input class="w3-input" type="text" name="HomeDistrict" value="{{trainer.HomeDistrict}}" />
+    </p>
+    <p>
+      <label>NID</label>
+      <input class="w3-input" type="text" name="NID" value="{{trainer.NID}}" />
+    </p>
+    <p>
+      <label>Join Date</label>
+      <input class="w3-input" type="date" name="JoinDate" value="{{trainer.JoinDate}}" />
+    </p>
+    <p>
+      <label>Year of Experience</label>
+      <input class="w3-input" type="number" name="YearOfExperience" value="{{trainer.YearOfExperience}}" />
+    </p>
+    <p>
+      <label>Previously Worked In</label>
+      <input class="w3-input" type="text" name="PreviouslyWorkedIn" value="{{trainer.PreviouslyWorkedIn}}" />
+    </p>
+    <p>
+      <label>Working Hours</label>
+      <input class="w3-input" type="text" name="WorkingHours" value="{{trainer.WorkingHours}}" />
+    </p>
+    <p>
+      <label>Salary</label>
+      <input class="w3-input" type="number" step="0.01" name="salary" value="{{trainer.salary}}" />
+    </p>
+    <p>
+      <label>Course Assigned</label>
+      <input class="w3-input" type="text" name="CourseAssigned" value="{{trainer.CourseAssigned}}" />
+    </p>
+    <p>
+      <label>Batch Assigned</label>
+      <input class="w3-input" type="text" name="BatchAssigned" value="{{trainer.BatchAssigned}}" />
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}

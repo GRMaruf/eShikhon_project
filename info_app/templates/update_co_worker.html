@@ -1,0 +1,63 @@
+{% extends 'master/base.html' %}
+
+{% block header %}
+  <h2>Update Co-Worker Information</h2>
+  <p>This page allows you to update information about an existing co-worker in the eShikhon Information Management System.</p>
+{% endblock %}
+
+{% block content %}
+  <form class="w3-container" method="post" action="{% url 'update_co_worker' co_worker.id %}">
+    {% csrf_token %}
+    <p>
+        <label>Name</label>
+        <input class="w3-input" type="text" name="Name" value="{{ co_worker.Name }}" />
+    </p>
+    <p>
+        <label>Worker ID</label>
+        <input class="w3-input" type="text" name="WorkerID" value="{{ co_worker.WorkerID }}" />
+    </p>
+    <p>
+        <label>Designation</label>
+        <input class="w3-input" type="text" name="Designation" value="{{ co_worker.Designation }}" />
+    </p>
+    <p>
+        <label>Age</label>
+        <input class="w3-input" type="number" name="Age" value="{{ co_worker.Age }}" />
+    </p>
+    <p>
+        <label>Address</label>
+        <input class="w3-input" type="text" name="Address" value="{{ co_worker.Address }}" />
+    </p>
+    <p>
+        <label>Home District</label>
+        <input class="w3-input" type="text" name="HomeDistrict" value="{{ co_worker.HomeDistrict }}" />
+    </p>
+    <p>
+        <label>NID</label>
+        <input class="w3-input" type="text" name="NID" value="{{ co_worker.NID }}" />
+    </p>
+    <p>
+        <label>Join Date</label>
+        <input class="w3-input" type="date" name="JoinDate" value="{{ co_worker.JoinDate }}" />
+    </p>
+    <p>
+        <label>Year of Experience</label>
+        <input class="w3-input" type="number" name="YearOfExperience" value="{{ co_worker.YearOfExperience }}" />
+    </p>
+    <p>
+        <label>Previously Worked In</label>
+        <textarea class="w3-input" name="PreviouslyWorkedIn">{{ co_worker.PreviouslyWorkedIn }}</textarea>
+    </p>
+    <p>
+        <label>Working Hours</label>
+        <input class="w3-input" type="text" name="WorkingHours" value="{{ co_worker.WorkingHours }}" />
+    </p>
+    <p>
+        <label>Salary</label>
+        <input class="w3-input" type="number" step="0.01" name="salary" value="{{ co_worker.salary }}" />
+    </p>
+    <p>
+      <button class="w3-button w3-green" type="submit">Submit</button>
+    </p>
+  </form>
+{% endblock %}
