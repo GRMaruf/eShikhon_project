@@ -1,5 +1,15 @@
+# Python
 *.pyc
 __pycache__/
+
+# Django
 db.sqlite3
-/venv
-/migrations
+/migrations/
+
+# Virtual environment
+/venv/
+
+# OS files
+*.log
+*.pot
+*.py[cod]
