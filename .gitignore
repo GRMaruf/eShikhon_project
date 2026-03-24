@@ -4,12 +4,7 @@ __pycache__/
 
 # Django
 db.sqlite3
-/migrations/
-
-# Virtual environment
-/venv/
+migrations/
 
 # OS files
 *.log
-*.pot
-*.py[cod]
